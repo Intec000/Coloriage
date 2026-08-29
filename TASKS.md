@@ -54,10 +54,15 @@ Objectif : ajouter une section pédagogique sur la lecture des statistiques et l
 Validation : page `/conseils` créée avec principes de lecture, checklist et rappels responsables, sans promesse de gain.
 
 ### TASK-011 — Historique V1
-Statut : 🔵 En cours
+Statut : 🟢 Terminé
 Objectif : préparer un historique simple des analyses et résultats pour mesurer la qualité des estimations dans le temps.
-Première étape : définir une structure TypeScript d'entrée d'historique et une page `/historique` de démonstration.
-Critère de fin : une page lisible affiche les entrées passées avec statut, résultat et estimation, prête à recevoir des données réelles.
+Validation : modèle TypeScript `HistoryEntry`/`HistoryStatus`, données de démonstration et page `/historique` avec statut, résultat, estimation, confiance et synthèse.
+
+### TASK-012 — CTA Telegram V1
+Statut : 🔵 En cours
+Objectif : ajouter les points d'accès Telegram dans le site pour préparer la future communauté.
+Première étape : définir une URL/configuration unique et intégrer un CTA réutilisable sur l'accueil, les matchs et les pages de contenu.
+Critère de fin : le site présente un CTA Telegram cohérent et facile à remplacer par le vrai lien du canal.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
