@@ -18,10 +18,16 @@ Critère de fin : projet démarre localement.
 Validation : serveur Next.js lancé avec succès en local sur http://localhost:3000 le 29/08/2026.
 
 ### TASK-004 — Construire la page d'accueil
-Statut : 🔵 En cours
+Statut : 🟢 Terminé
 Objectif : créer la première vraie page d'accueil de Coloriage, responsive et cohérente avec l'identité du projet.
-Livrables initiaux : hero, navigation, présentation des analyses/statistiques, approche responsable et footer.
-Critère de fin : page d'accueil implémentée, testée localement et validée visuellement.
+Livrables : hero, navigation, présentation des analyses/statistiques, aperçu des matchs, approche responsable et footer.
+Validation : page testée localement et validée visuellement le 29/08/2026.
+
+### TASK-005 — Gestion des matchs V1
+Statut : 🔵 En cours
+Objectif : créer une structure propre pour afficher les matchs sans dépendre d'une API sportive payante.
+Première étape : définir le modèle TypeScript des matchs et alimenter une liste de démonstration côté site.
+Critère de fin : liste des matchs accessible depuis l'accueil, structure prête à être remplacée plus tard par Supabase ou une source externe.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
