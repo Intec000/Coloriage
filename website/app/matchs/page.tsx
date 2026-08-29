@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { demoMatches } from "@/lib/matches";
+import TelegramCTA from "../components/TelegramCTA";
 
 export default function MatchesPage() {
   return (
@@ -9,9 +10,12 @@ export default function MatchesPage() {
           <Link href="/" className="text-xl font-black tracking-tight">
             Coloriage<span className="text-[#7a9b76]">.</span>
           </Link>
-          <Link href="/" className="rounded-full border border-[#17231d]/10 bg-white px-5 py-2.5 text-sm font-bold transition hover:shadow-md">
-            ← Accueil
-          </Link>
+          <div className="flex items-center gap-3">
+            <TelegramCTA compact />
+            <Link href="/" className="rounded-full border border-[#17231d]/10 bg-white px-5 py-2.5 text-sm font-bold transition hover:shadow-md">
+              ← Accueil
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -62,6 +66,15 @@ export default function MatchesPage() {
               </Link>
             </article>
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-col gap-5 rounded-3xl border border-[#17231d]/10 bg-white p-7 sm:flex-row sm:items-center sm:justify-between sm:p-9">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#7a9b76]">Telegram</p>
+            <h2 className="mt-2 text-2xl font-black">Ne ratez pas les prochaines analyses.</h2>
+            <p className="mt-2 text-[#68736d]">Retrouvez les publications et nouveautés du projet dans la communauté.</p>
+          </div>
+          <TelegramCTA />
         </div>
       </section>
     </main>
