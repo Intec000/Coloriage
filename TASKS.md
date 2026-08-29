@@ -59,10 +59,15 @@ Objectif : préparer un historique simple des analyses et résultats pour mesure
 Validation : modèle TypeScript `HistoryEntry`/`HistoryStatus`, données de démonstration et page `/historique` avec statut, résultat, estimation, confiance et synthèse.
 
 ### TASK-012 — CTA Telegram V1
-Statut : 🔵 En cours
+Statut : 🟢 Terminé
 Objectif : ajouter les points d'accès Telegram dans le site pour préparer la future communauté.
-Première étape : définir une URL/configuration unique et intégrer un CTA réutilisable sur l'accueil, les matchs et les pages de contenu.
-Critère de fin : le site présente un CTA Telegram cohérent et facile à remplacer par le vrai lien du canal.
+Validation : configuration centralisée dans `website/lib/telegram.ts`, composant `TelegramCTA` réutilisable et CTA intégrés à l'accueil et à la page `/matchs`. L'URL reste remplaçable via `NEXT_PUBLIC_TELEGRAM_URL`.
+
+### TASK-013 — Affiliation V1
+Statut : 🔵 En cours
+Objectif : préparer une intégration d'affiliation transparente et techniquement séparée du contenu éditorial.
+Première étape : définir une configuration centralisée pour le lien affilié et un CTA clairement identifié.
+Critère de fin : le lien affilié peut être remplacé sans modifier les pages du site.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
