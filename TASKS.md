@@ -24,10 +24,16 @@ Livrables : hero, navigation, présentation des analyses/statistiques, aperçu d
 Validation : page testée localement et validée visuellement le 29/08/2026.
 
 ### TASK-005 — Gestion des matchs V1
-Statut : 🔵 En cours
+Statut : 🟢 Terminé
 Objectif : créer une structure propre pour afficher les matchs sans dépendre d'une API sportive payante.
-Première étape : définir le modèle TypeScript des matchs et alimenter une liste de démonstration côté site.
-Critère de fin : liste des matchs accessible depuis l'accueil, structure prête à être remplacée plus tard par Supabase ou une source externe.
+Livrables : modèle TypeScript `Match`, statuts `scheduled/live/finished`, liste `demoMatches` et intégration de cette source dans l'accueil.
+Validation : la structure est présente dans `website/lib/matches.ts`, la page d'accueil consomme `demoMatches`, et le dernier commit du 29/08/2026 corrige la gestion des horaires de démonstration.
+
+### TASK-006 — Fiche match
+Statut : 🔵 En cours
+Objectif : créer une fiche détaillée pour chaque match avec informations, statistiques et zone d'analyse.
+Première étape : consolider la route dynamique `/matchs/[id]` autour du modèle `Match` existant.
+Critère de fin : chaque match de démonstration peut ouvrir sa fiche détaillée sans casser la navigation.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
