@@ -1,3 +1,5 @@
+import { demoMatches } from "../lib/matches";
+
 const features = [
   {
     number: "01",
@@ -14,12 +16,6 @@ const features = [
     title: "Historique transparent",
     text: "Les résultats passés seront conservés pour pouvoir évaluer les analyses avec recul.",
   },
-];
-
-const upcoming = [
-  { time: "18:00", home: "Équipe A", away: "Équipe B", tag: "Analyse" },
-  { time: "20:30", home: "Équipe C", away: "Équipe D", tag: "À venir" },
-  { time: "21:00", home: "Équipe E", away: "Équipe F", tag: "À surveiller" },
 ];
 
 export default function Home() {
@@ -80,9 +76,9 @@ export default function Home() {
                 <span className="rounded-full bg-[#eef3eb] px-3 py-1 text-xs font-bold text-[#45604b]">V1</span>
               </div>
               <div className="mt-6 grid grid-cols-[1fr_auto_1fr] items-center gap-3 text-center">
-                <div className="rounded-2xl bg-[#f5f5f1] p-5 font-bold">Équipe A</div>
+                <div className="rounded-2xl bg-[#f5f5f1] p-5 font-bold">{demoMatches[0].homeTeam}</div>
                 <span className="text-sm font-black text-[#7a9b76]">VS</span>
-                <div className="rounded-2xl bg-[#f5f5f1] p-5 font-bold">Équipe B</div>
+                <div className="rounded-2xl bg-[#f5f5f1] p-5 font-bold">{demoMatches[0].awayTeam}</div>
               </div>
               <div className="mt-6 space-y-3">
                 {[
@@ -138,17 +134,21 @@ export default function Home() {
           <span className="rounded-full border border-[#17231d]/10 bg-white px-4 py-2 text-sm font-semibold text-[#68736d]">Données de démonstration</span>
         </div>
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
-          {upcoming.map((match) => (
-            <article key={match.time} className="rounded-3xl border border-[#17231d]/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+          {demoMatches.map((match) => (
+            <article key={match.id} className="rounded-3xl border border-[#17231d]/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
               <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#7a9b76]">
-                <span>{match.time}</span><span>{match.tag}</span>
+                <span>{match.kickoff}</span><span>{match.competition}</span>
               </div>
               <div className="mt-6 flex items-center gap-3">
-                <div className="flex-1 rounded-2xl bg-[#f5f5f1] p-4 text-center font-bold">{match.home}</div>
+                <div className="flex-1 rounded-2xl bg-[#f5f5f1] p-4 text-center font-bold">{match.homeTeam}</div>
                 <span className="text-xs font-black text-[#7a9b76]">VS</span>
-                <div className="flex-1 rounded-2xl bg-[#f5f5f1] p-4 text-center font-bold">{match.away}</div>
+                <div className="flex-1 rounded-2xl bg-[#f5f5f1] p-4 text-center font-bold">{match.awayTeam}</div>
               </div>
-              <button type="button" className="mt-5 w-full rounded-xl border border-[#17231d]/10 px-4 py-3 text-sm font-bold transition hover:bg-[#f8f7f3]">
+              <div className="mt-5 flex items-center justify-between rounded-xl bg-[#f8f7f3] px-4 py-3 text-sm">
+                <span className="text-[#68736d]">Statut</span>
+                <strong>{match.status === "scheduled" ? "À venir" : match.status}</strong>
+              </div>
+              <button type="button" className="mt-3 w-full rounded-xl border border-[#17231d]/10 px-4 py-3 text-sm font-bold transition hover:bg-[#f8f7f3]">
                 Voir l’analyse
               </button>
             </article>
