@@ -49,10 +49,15 @@ Objectif : préparer une vue de classement simple pour présenter les équipes d
 Validation : modèle TypeScript `StandingRow`/`StandingsTable`, table de démonstration et page `/classements` lisible et réutilisable.
 
 ### TASK-010 — Conseils & éducation V1
-Statut : 🔵 En cours
+Statut : 🟢 Terminé
 Objectif : ajouter une section pédagogique sur la lecture des statistiques et l'approche responsable.
-Première étape : créer une page `/conseils` avec des contenus courts et clairs.
-Critère de fin : la page est accessible depuis le site et présente des conseils utiles sans promesse de gain.
+Validation : page `/conseils` créée avec principes de lecture, checklist et rappels responsables, sans promesse de gain.
+
+### TASK-011 — Historique V1
+Statut : 🔵 En cours
+Objectif : préparer un historique simple des analyses et résultats pour mesurer la qualité des estimations dans le temps.
+Première étape : définir une structure TypeScript d'entrée d'historique et une page `/historique` de démonstration.
+Critère de fin : une page lisible affiche les entrées passées avec statut, résultat et estimation, prête à recevoir des données réelles.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
