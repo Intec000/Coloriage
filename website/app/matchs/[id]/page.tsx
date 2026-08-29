@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { demoMatches } from "@/lib/matches";
 
+const formLabel = (result: string) => {
+  if (result === "V") return "Victoire";
+  if (result === "N") return "Nul";
+  return "Défaite";
+};
+
 export default async function MatchPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const match = demoMatches.find((item) => item.id === id);
@@ -17,12 +23,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
     );
   }
 
-  const stats = [
-    ["Forme récente", "À analyser"],
-    ["Buts marqués", "Données à venir"],
-    ["Buts encaissés", "Données à venir"],
-    ["Confrontations", "Données à venir"],
-  ];
+  const matchStats = match.stats;
 
   return (
     <main className="min-h-screen bg-[#f8f7f3] text-[#17231d]">
@@ -50,17 +51,67 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
           </div>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.35fr_.65fr]">
-          <section className="rounded-3xl border border-[#17231d]/10 bg-white p-7 sm:p-9">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#7a9b76]">Lecture du match</p>
-            <h2 className="mt-3 text-2xl font-black">Statistiques essentielles</h2>
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              {stats.map(([label, value]) => (
-                <div key={label} className="rounded-2xl bg-[#f8f7f3] p-5">
-                  <p className="text-sm font-semibold text-[#68736d]">{label}</p>
-                  <p className="mt-2 font-black">{value}</p>
+        <section className="mt-12 rounded-3xl border border-[#17231d]/10 bg-white p-7 sm:p-9">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#7a9b76]">Statistiques V1</p>
+          <h2 className="mt-3 text-2xl font-black">Les chiffres essentiels</h2>
+
+          {matchStats ? (
+            <>
+              <div className="mt-7 grid gap-4 md:grid-cols-2">
+                <div className="rounded-2xl bg-[#f8f7f3] p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold">{match.homeTeam}</span>
+                    <span className="text-sm text-[#68736d]">5 derniers matchs</span>
+                  </div>
+                  <div className="mt-4 flex gap-2">
+                    {matchStats.homeForm.map((result, index) => (
+                      <span key={`${result}-${index}`} title={formLabel(result)} className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-black ring-1 ring-[#17231d]/10">
+                        {result}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              ))}
+
+                <div className="rounded-2xl bg-[#f8f7f3] p-5">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold">{match.awayTeam}</span>
+                    <span className="text-sm text-[#68736d]">5 derniers matchs</span>
+                  </div>
+                  <div className="mt-4 flex gap-2">
+                    {matchStats.awayForm.map((result, index) => (
+                      <span key={`${result}-${index}`} title={formLabel(result)} className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-black ring-1 ring-[#17231d]/10">
+                        {result}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {[
+                  ["Buts marqués", `${matchStats.homeGoalsFor} — ${matchStats.awayGoalsFor}`],
+                  ["Buts encaissés", `${matchStats.homeGoalsAgainst} — ${matchStats.awayGoalsAgainst}`],
+                  ["Moy. buts marqués", `${(matchStats.homeGoalsFor / 5).toFixed(1)} — ${(matchStats.awayGoalsFor / 5).toFixed(1)}`],
+                  ["Confrontations", matchStats.headToHead],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-2xl border border-[#17231d]/10 p-5">
+                    <p className="text-sm font-semibold text-[#68736d]">{label}</p>
+                    <p className="mt-2 text-lg font-black">{value}</p>
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className="mt-7 rounded-2xl bg-[#f8f7f3] p-6 text-sm text-[#5d6962]">Statistiques à venir.</div>
+          )}
+        </section>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[1.35fr_.65fr]">
+          <section className="rounded-3xl border border-[#17231d]/10 bg-white p-7 sm:p-9">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#7a9b76]">Lecture</p>
+            <h2 className="mt-3 text-2xl font-black">Forme et tendances</h2>
+            <div className="mt-6 rounded-2xl bg-[#f8f7f3] p-6 text-sm leading-7 text-[#5d6962]">
+              Les statistiques affichées sont actuellement des données de démonstration. Elles seront remplacées par des données réelles dès que la source de données sera branchée.
             </div>
           </section>
 
@@ -72,25 +123,14 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
               <div className="mt-3 flex items-end justify-between gap-4">
                 <p className="text-3xl font-black">{match.prediction?.confidence ?? 0}%</p>
                 <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/10">
-                  <div
-                    className="h-full rounded-full bg-[#b9cdb5]"
-                    style={{ width: `${match.prediction?.confidence ?? 0}%` }}
-                  />
+                  <div className="h-full rounded-full bg-[#b9cdb5]" style={{ width: `${match.prediction?.confidence ?? 0}%` }} />
                 </div>
               </div>
             </div>
             <p className="mt-6 text-sm leading-6 text-white/70">{match.prediction?.rationale}</p>
-            <p className="mt-5 text-xs leading-5 text-white/50">Estimation illustrative : aucune prédiction ne garantit le résultat d&apos;une rencontre.</p>
+            <p className="mt-5 text-xs leading-5 text-white/50">Estimation illustrative : aucun pronostic ne garantit le résultat d&apos;une rencontre.</p>
           </aside>
         </div>
-
-        <section className="mt-6 rounded-3xl border border-[#17231d]/10 bg-white p-7 sm:p-9">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#7a9b76]">Historique</p>
-          <h2 className="mt-3 text-2xl font-black">Forme et tendances</h2>
-          <div className="mt-6 rounded-2xl bg-[#f8f7f3] p-6 text-sm leading-7 text-[#5d6962]">
-            Les cinq derniers matchs, les buts marqués/encaissés, les absences et les confrontations directes seront affichés ici après branchement de la source de données.
-          </div>
-        </section>
       </section>
     </main>
   );
