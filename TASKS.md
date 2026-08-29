@@ -74,10 +74,11 @@ Objectif : préparer un espace interne pour gérer les matchs, analyses, pronost
 Validation : page `/admin` créée avec navigation des modules, indicateurs V1, liens vers les espaces existants et séparation explicite de l'espace public. Aucune action sensible sans authentification ; prête pour une future connexion Supabase.
 
 ### TASK-015 — Connexion Supabase V1
-Statut : 🔵 En cours
+Statut : 🟡 Implémentation terminée — validation locale requise
 Objectif : préparer la connexion à Supabase pour remplacer progressivement les données de démonstration.
 Première étape : définir le client Supabase et la configuration d'environnement sans exposer de secrets.
-Critère de fin : le projet possède une base de connexion Supabase propre, documentée et prête à recevoir les premières requêtes.
+Livrables : dépendances `@supabase/ssr` et `@supabase/supabase-js`, client navigateur `website/lib/supabase.ts`, modèle `website/.env.example`.
+Validation restante : installer les dépendances puis lancer le projet localement avec les variables Supabase pour confirmer le build et le démarrage.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
