@@ -26,59 +26,64 @@ Validation : page testée localement et validée visuellement le 29/08/2026.
 ### TASK-005 — Gestion des matchs V1
 Statut : 🟢 Terminé
 Objectif : créer une structure propre pour afficher les matchs sans dépendre d'une API sportive payante.
-Validation : modèle TypeScript, données de démonstration, page liste `/matchs` et intégration sur l'accueil présentes.
+Validation : modèle TypeScript, données de démonstration, page liste /matchs et intégration sur l'accueil présentes.
 
 ### TASK-006 — Fiche match V1
 Statut : 🟢 Terminé
 Objectif : permettre d'ouvrir une fiche détaillée depuis chaque match.
-Validation : route dynamique `/matchs/[id]`, gestion du match introuvable, présentation des équipes, statut, statistiques essentielles, verdict et historique à venir.
+Validation : route dynamique /matchs/[id], gestion du match introuvable, présentation des équipes, statut, statistiques essentielles, verdict et historique à venir.
 
 ### TASK-007 — Pronostics V1
 Statut : 🟢 Terminé
 Objectif : préparer une section de pronostic clairement présentée comme une estimation et non comme une garantie.
-Validation : modèle `Prediction` lié aux matchs, données de démonstration, affichage du pronostic et du niveau de confiance sur chaque fiche match, avec avertissement responsable.
+Validation : modèle Prediction lié aux matchs, données de démonstration, affichage du pronostic et du niveau de confiance sur chaque fiche match, avec avertissement responsable.
 
 ### TASK-008 — Statistiques V1
 Statut : 🟢 Terminé
 Objectif : structurer l'affichage des statistiques essentielles d'un match.
-Validation : modèle `MatchStats`, données de démonstration, forme des deux équipes, buts marqués/encaissés, moyennes et confrontations directes affichés sur la fiche match.
+Validation : modèle MatchStats, données de démonstration, forme des deux équipes, buts marqués/encaissés, moyennes et confrontations directes affichés sur la fiche match.
 
 ### TASK-009 — Classements V1
 Statut : 🟢 Terminé
 Objectif : préparer une vue de classement simple pour présenter les équipes d'une compétition.
-Validation : modèle TypeScript `StandingRow`/`StandingsTable`, table de démonstration et page `/classements` lisible et réutilisable.
+Validation : modèle TypeScript StandingRow/StandingsTable, table de démonstration et page /classements lisible et réutilisable.
 
 ### TASK-010 — Conseils & éducation V1
 Statut : 🟢 Terminé
 Objectif : ajouter une section pédagogique sur la lecture des statistiques et l'approche responsable.
-Validation : page `/conseils` créée avec principes de lecture, checklist et rappels responsables, sans promesse de gain.
+Validation : page /conseils créée avec principes de lecture, checklist et rappels responsables, sans promesse de gain.
 
 ### TASK-011 — Historique V1
 Statut : 🟢 Terminé
 Objectif : préparer un historique simple des analyses et résultats pour mesurer la qualité des estimations dans le temps.
-Validation : modèle TypeScript `HistoryEntry`/`HistoryStatus`, données de démonstration et page `/historique` avec statut, résultat, estimation, confiance et synthèse.
+Validation : modèle TypeScript HistoryEntry/HistoryStatus, données de démonstration et page /historique avec statut, résultat, estimation, confiance et synthèse.
 
 ### TASK-012 — CTA Telegram V1
 Statut : 🟢 Terminé
 Objectif : ajouter les points d'accès Telegram dans le site pour préparer la future communauté.
-Validation : configuration centralisée dans `website/lib/telegram.ts`, composant `TelegramCTA` réutilisable et CTA intégrés à l'accueil et à la page `/matchs`. L'URL reste remplaçable via `NEXT_PUBLIC_TELEGRAM_URL`.
+Validation : configuration centralisée dans website/lib/telegram.ts, composant TelegramCTA réutilisable et CTA intégrés à l'accueil et à la page /matchs. L'URL reste remplaçable via NEXT_PUBLIC_TELEGRAM_URL.
 
 ### TASK-013 — Affiliation V1
 Statut : 🟢 Terminé
 Objectif : préparer une intégration d'affiliation transparente et techniquement séparée du contenu éditorial.
-Validation : configuration centralisée dans `website/lib/affiliate.ts`, composant `AffiliateCTA` réutilisable et CTA intégré à l'accueil. L'URL reste remplaçable via `NEXT_PUBLIC_AFFILIATE_URL`, avec divulgation du lien partenaire et rappel 18+/jeu responsable.
+Validation : configuration centralisée dans website/lib/affiliate.ts, composant AffiliateCTA réutilisable et CTA intégré à l'accueil. L'URL reste remplaçable via NEXT_PUBLIC_AFFILIATE_URL, avec divulgation du lien partenaire et rappel 18+/jeu responsable.
 
 ### TASK-014 — Dashboard admin V1
 Statut : 🟢 Terminé
 Objectif : préparer un espace interne pour gérer les matchs, analyses, pronostics, historique et contenus.
-Validation : page `/admin` créée avec navigation des modules, indicateurs V1, liens vers les espaces existants et séparation explicite de l'espace public. Aucune action sensible sans authentification ; prête pour une future connexion Supabase.
+Validation : page /admin créée avec navigation des modules, indicateurs V1, liens vers les espaces existants et séparation explicite de l'espace public. Aucune action sensible sans authentification ; prête pour une future connexion Supabase.
 
 ### TASK-015 — Connexion Supabase V1
-Statut : 🟡 Implémentation terminée — validation locale requise
+Statut : 🟢 Terminé
 Objectif : préparer la connexion à Supabase pour remplacer progressivement les données de démonstration.
 Première étape : définir le client Supabase et la configuration d'environnement sans exposer de secrets.
-Livrables : dépendances `@supabase/ssr` et `@supabase/supabase-js`, client navigateur `website/lib/supabase.ts`, modèle `website/.env.example`.
-Validation restante : installer les dépendances puis lancer le projet localement avec les variables Supabase pour confirmer le build et le démarrage.
+Livrables : dépendances @supabase/ssr et @supabase/supabase-js, client navigateur website/lib/supabase.ts, modèle website/.env.example.
+Validation : build de production réussi localement le 29/08/2026 avec Next.js 16.3.3, compilation TypeScript, collecte des données et génération des pages terminées sans erreur.
+
+### TASK-016 — Configuration Supabase réelle
+Statut : 🔵 À faire
+Objectif : créer le projet Supabase, configurer les variables locales et appliquer le schéma V1 sans exposer de secrets.
+Critère de fin : connexion réelle validée et premières données accessibles depuis l'application.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
