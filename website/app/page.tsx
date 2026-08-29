@@ -1,4 +1,5 @@
 import { demoMatches } from "../lib/matches";
+import TelegramCTA from "./components/TelegramCTA";
 
 const features = [
   {
@@ -31,9 +32,12 @@ export default function Home() {
             <a href="#matchs" className="transition hover:text-[#7a9b76]">Matchs</a>
             <a href="#methode" className="transition hover:text-[#7a9b76]">Méthode</a>
           </nav>
-          <a href="#matchs" className="rounded-full bg-[#17231d] px-5 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#26372c]">
-            Voir les matchs
-          </a>
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:block"><TelegramCTA compact /></div>
+            <a href="#matchs" className="rounded-full bg-[#17231d] px-5 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#26372c]">
+              Voir les matchs
+            </a>
+          </div>
         </div>
       </header>
 
@@ -63,6 +67,7 @@ export default function Home() {
               <span>✓ Données structurées</span>
               <span>✓ Approche responsable</span>
             </div>
+            <div className="mt-8 sm:hidden"><TelegramCTA /></div>
           </div>
 
           <div className="relative mx-auto w-full max-w-xl">
@@ -153,6 +158,17 @@ export default function Home() {
               </button>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="border-y border-[#17231d]/10 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-16 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#7a9b76]">Communauté</p>
+            <h2 className="mt-2 text-2xl font-black">Recevoir les prochaines analyses sur Telegram.</h2>
+            <p className="mt-2 max-w-2xl text-[#68736d]">Le canal sera utilisé pour partager les nouveautés, analyses et publications du projet.</p>
+          </div>
+          <TelegramCTA />
         </div>
       </section>
 
