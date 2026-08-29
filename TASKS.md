@@ -39,10 +39,15 @@ Objectif : préparer une section de pronostic clairement présentée comme une e
 Validation : modèle `Prediction` lié aux matchs, données de démonstration, affichage du pronostic et du niveau de confiance sur chaque fiche match, avec avertissement responsable.
 
 ### TASK-008 — Statistiques V1
-Statut : 🔵 En cours
+Statut : 🟢 Terminé
 Objectif : structurer l'affichage des statistiques essentielles d'un match.
-Première étape : définir les champs statistiques V1 et préparer leur intégration dans le modèle de données et la fiche match.
-Critère de fin : la fiche match peut afficher une section de statistiques structurée, prête à recevoir des données réelles.
+Validation : modèle `MatchStats`, données de démonstration, forme des deux équipes, buts marqués/encaissés, moyennes et confrontations directes affichés sur la fiche match.
+
+### TASK-009 — Classements V1
+Statut : 🔵 En cours
+Objectif : préparer une vue de classement simple pour présenter les équipes d'une compétition.
+Première étape : définir le modèle TypeScript du classement et une table de démonstration.
+Critère de fin : une page `/classements` affiche un classement V1 lisible et réutilisable.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
