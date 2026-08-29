@@ -1,5 +1,11 @@
 export type MatchStatus = "scheduled" | "live" | "finished";
 
+export type Prediction = {
+  label: string;
+  confidence: number;
+  rationale: string;
+};
+
 export type Match = {
   id: string;
   competition: string;
@@ -8,6 +14,7 @@ export type Match = {
   awayTeam: string;
   status: MatchStatus;
   featured?: boolean;
+  prediction?: Prediction;
 };
 
 /**
@@ -24,6 +31,11 @@ export const demoMatches: Match[] = [
     awayTeam: "Équipe B",
     status: "scheduled",
     featured: true,
+    prediction: {
+      label: "Équipe A ou nul",
+      confidence: 68,
+      rationale: "Estimation illustrative basée sur une lecture simplifiée de la rencontre.",
+    },
   },
   {
     id: "demo-002",
@@ -32,6 +44,11 @@ export const demoMatches: Match[] = [
     homeTeam: "Équipe C",
     awayTeam: "Équipe D",
     status: "scheduled",
+    prediction: {
+      label: "Plus de 1,5 buts",
+      confidence: 61,
+      rationale: "Exemple de projection V1 à remplacer par des données réelles.",
+    },
   },
   {
     id: "demo-003",
@@ -40,5 +57,10 @@ export const demoMatches: Match[] = [
     homeTeam: "Équipe E",
     awayTeam: "Équipe F",
     status: "scheduled",
+    prediction: {
+      label: "Match équilibré",
+      confidence: 54,
+      rationale: "Aucune tendance forte n'est établie dans ces données de démonstration.",
+    },
   },
 ];
