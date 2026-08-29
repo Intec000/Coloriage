@@ -44,10 +44,15 @@ Objectif : structurer l'affichage des statistiques essentielles d'un match.
 Validation : modèle `MatchStats`, données de démonstration, forme des deux équipes, buts marqués/encaissés, moyennes et confrontations directes affichés sur la fiche match.
 
 ### TASK-009 — Classements V1
-Statut : 🔵 En cours
+Statut : 🟢 Terminé
 Objectif : préparer une vue de classement simple pour présenter les équipes d'une compétition.
-Première étape : définir le modèle TypeScript du classement et une table de démonstration.
-Critère de fin : une page `/classements` affiche un classement V1 lisible et réutilisable.
+Validation : modèle TypeScript `StandingRow`/`StandingsTable`, table de démonstration et page `/classements` lisible et réutilisable.
+
+### TASK-010 — Conseils & éducation V1
+Statut : 🔵 En cours
+Objectif : ajouter une section pédagogique sur la lecture des statistiques et l'approche responsable.
+Première étape : créer une page `/conseils` avec des contenus courts et clairs.
+Critère de fin : la page est accessible depuis le site et présente des conseils utiles sans promesse de gain.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
