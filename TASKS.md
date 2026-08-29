@@ -20,6 +20,7 @@ Validation : serveur Next.js lancé avec succès en local sur http://localhost:3
 ### TASK-004 — Construire la page d'accueil
 Statut : 🔵 En cours
 Objectif : créer la première vraie page d'accueil de Coloriage, responsive et cohérente avec l'identité du projet.
+Livrables initiaux : hero, navigation, présentation des analyses/statistiques, approche responsable et footer.
 Critère de fin : page d'accueil implémentée, testée localement et validée visuellement.
 
 ## Règle
