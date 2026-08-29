@@ -26,14 +26,18 @@ Validation : page testée localement et validée visuellement le 29/08/2026.
 ### TASK-005 — Gestion des matchs V1
 Statut : 🟢 Terminé
 Objectif : créer une structure propre pour afficher les matchs sans dépendre d'une API sportive payante.
-Livrables : modèle TypeScript `Match`, statuts `scheduled/live/finished`, liste `demoMatches` et intégration de cette source dans l'accueil.
-Validation : la structure est présente dans `website/lib/matches.ts`, la page d'accueil consomme `demoMatches`, et le dernier commit du 29/08/2026 corrige la gestion des horaires de démonstration.
+Validation : modèle TypeScript, données de démonstration, page liste `/matchs` et intégration sur l'accueil présentes.
 
-### TASK-006 — Fiche match
+### TASK-006 — Fiche match V1
+Statut : 🟢 Terminé
+Objectif : permettre d'ouvrir une fiche détaillée depuis chaque match.
+Validation : route dynamique `/matchs/[id]`, gestion du match introuvable, présentation des équipes, statut, statistiques essentielles, verdict et historique à venir.
+
+### TASK-007 — Pronostics V1
 Statut : 🔵 En cours
-Objectif : créer une fiche détaillée pour chaque match avec informations, statistiques et zone d'analyse.
-Première étape : consolider la route dynamique `/matchs/[id]` autour du modèle `Match` existant.
-Critère de fin : chaque match de démonstration peut ouvrir sa fiche détaillée sans casser la navigation.
+Objectif : préparer une section de pronostic clairement présentée comme une estimation et non comme une garantie.
+Première étape : définir une structure de pronostic liée à un match et l'afficher dans la fiche match.
+Critère de fin : chaque fiche match peut afficher un pronostic V1 avec niveau de confiance et avertissement responsable.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
