@@ -6,6 +6,16 @@ export type Prediction = {
   rationale: string;
 };
 
+export type MatchStats = {
+  homeForm: string[];
+  awayForm: string[];
+  homeGoalsFor: number;
+  homeGoalsAgainst: number;
+  awayGoalsFor: number;
+  awayGoalsAgainst: number;
+  headToHead: string;
+};
+
 export type Match = {
   id: string;
   competition: string;
@@ -15,6 +25,7 @@ export type Match = {
   status: MatchStatus;
   featured?: boolean;
   prediction?: Prediction;
+  stats?: MatchStats;
 };
 
 /**
@@ -36,6 +47,15 @@ export const demoMatches: Match[] = [
       confidence: 68,
       rationale: "Estimation illustrative basée sur une lecture simplifiée de la rencontre.",
     },
+    stats: {
+      homeForm: ["V", "V", "N", "V", "D"],
+      awayForm: ["N", "V", "D", "N", "V"],
+      homeGoalsFor: 9,
+      homeGoalsAgainst: 5,
+      awayGoalsFor: 7,
+      awayGoalsAgainst: 7,
+      headToHead: "3 victoires A • 1 nul • 1 victoire B",
+    },
   },
   {
     id: "demo-002",
@@ -49,6 +69,15 @@ export const demoMatches: Match[] = [
       confidence: 61,
       rationale: "Exemple de projection V1 à remplacer par des données réelles.",
     },
+    stats: {
+      homeForm: ["V", "N", "V", "D", "V"],
+      awayForm: ["V", "D", "N", "V", "D"],
+      homeGoalsFor: 10,
+      homeGoalsAgainst: 6,
+      awayGoalsFor: 8,
+      awayGoalsAgainst: 9,
+      headToHead: "2 victoires C • 2 nuls • 1 victoire D",
+    },
   },
   {
     id: "demo-003",
@@ -61,6 +90,15 @@ export const demoMatches: Match[] = [
       label: "Match équilibré",
       confidence: 54,
       rationale: "Aucune tendance forte n'est établie dans ces données de démonstration.",
+    },
+    stats: {
+      homeForm: ["N", "D", "V", "N", "V"],
+      awayForm: ["V", "N", "D", "V", "N"],
+      homeGoalsFor: 6,
+      homeGoalsAgainst: 6,
+      awayGoalsFor: 7,
+      awayGoalsAgainst: 6,
+      headToHead: "1 victoire E • 3 nuls • 1 victoire F",
     },
   },
 ];
