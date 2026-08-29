@@ -42,11 +42,13 @@ export default function MatchesPage() {
             <article key={match.id} className="rounded-3xl border border-[#17231d]/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#17231d]/5">
               <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider">
                 <span className="text-[#7a9b76]">{match.competition}</span>
-                <span className="rounded-full bg-[#eef3eb] px-3 py-1 text-[#45604b]">{match.status}</span>
+                <span className="rounded-full bg-[#eef3eb] px-3 py-1 text-[#45604b]">
+                  {match.status === "scheduled" ? "À venir" : match.status === "live" ? "En direct" : "Terminé"}
+                </span>
               </div>
 
               <p className="mt-5 text-sm font-semibold text-[#68736d]">
-                {new Intl.DateTimeFormat("fr-FR", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" }).format(new Date(match.kickoff))}
+                Coup d&apos;envoi : {match.kickoff}
               </p>
 
               <div className="mt-5 space-y-3">
