@@ -34,10 +34,15 @@ Objectif : permettre d'ouvrir une fiche détaillée depuis chaque match.
 Validation : route dynamique `/matchs/[id]`, gestion du match introuvable, présentation des équipes, statut, statistiques essentielles, verdict et historique à venir.
 
 ### TASK-007 — Pronostics V1
-Statut : 🔵 En cours
+Statut : 🟢 Terminé
 Objectif : préparer une section de pronostic clairement présentée comme une estimation et non comme une garantie.
-Première étape : définir une structure de pronostic liée à un match et l'afficher dans la fiche match.
-Critère de fin : chaque fiche match peut afficher un pronostic V1 avec niveau de confiance et avertissement responsable.
+Validation : modèle `Prediction` lié aux matchs, données de démonstration, affichage du pronostic et du niveau de confiance sur chaque fiche match, avec avertissement responsable.
+
+### TASK-008 — Statistiques V1
+Statut : 🔵 En cours
+Objectif : structurer l'affichage des statistiques essentielles d'un match.
+Première étape : définir les champs statistiques V1 et préparer leur intégration dans le modèle de données et la fiche match.
+Critère de fin : la fiche match peut afficher une section de statistiques structurée, prête à recevoir des données réelles.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
