@@ -65,13 +65,22 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
           </section>
 
           <aside className="rounded-3xl bg-[#17231d] p-7 text-white sm:p-9">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#b9cdb5]">Analyse</p>
-            <h2 className="mt-3 text-2xl font-black">Verdict</h2>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#b9cdb5]">Pronostic V1</p>
+            <h2 className="mt-3 text-2xl font-black">{match.prediction?.label ?? "Pas de pronostic"}</h2>
             <div className="mt-7 rounded-2xl bg-white/10 p-5">
               <p className="text-sm text-white/60">Niveau de confiance</p>
-              <p className="mt-2 text-3xl font-black">—</p>
+              <div className="mt-3 flex items-end justify-between gap-4">
+                <p className="text-3xl font-black">{match.prediction?.confidence ?? 0}%</p>
+                <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/10">
+                  <div
+                    className="h-full rounded-full bg-[#b9cdb5]"
+                    style={{ width: `${match.prediction?.confidence ?? 0}%` }}
+                  />
+                </div>
+              </div>
             </div>
-            <p className="mt-6 text-sm leading-6 text-white/65">L&apos;analyse automatique sera ajoutée lorsque les données réelles seront connectées.</p>
+            <p className="mt-6 text-sm leading-6 text-white/70">{match.prediction?.rationale}</p>
+            <p className="mt-5 text-xs leading-5 text-white/50">Estimation illustrative : aucune prédiction ne garantit le résultat d&apos;une rencontre.</p>
           </aside>
         </div>
 
