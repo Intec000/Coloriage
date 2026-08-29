@@ -1,5 +1,6 @@
 import { demoMatches } from "../lib/matches";
 import TelegramCTA from "./components/TelegramCTA";
+import AffiliateCTA from "./components/AffiliateCTA";
 
 const features = [
   {
@@ -68,6 +69,7 @@ export default function Home() {
               <span>✓ Approche responsable</span>
             </div>
             <div className="mt-8 sm:hidden"><TelegramCTA /></div>
+            <div className="mt-8"><AffiliateCTA /></div>
           </div>
 
           <div className="relative mx-auto w-full max-w-xl">
