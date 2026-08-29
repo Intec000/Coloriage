@@ -69,10 +69,15 @@ Objectif : préparer une intégration d'affiliation transparente et techniquemen
 Validation : configuration centralisée dans `website/lib/affiliate.ts`, composant `AffiliateCTA` réutilisable et CTA intégré à l'accueil. L'URL reste remplaçable via `NEXT_PUBLIC_AFFILIATE_URL`, avec divulgation du lien partenaire et rappel 18+/jeu responsable.
 
 ### TASK-014 — Dashboard admin V1
-Statut : 🔵 En cours
+Statut : 🟢 Terminé
 Objectif : préparer un espace interne pour gérer les matchs, analyses, pronostics, historique et contenus.
-Première étape : définir une structure de navigation et une page `/admin` de démonstration.
-Critère de fin : un tableau de bord V1 lisible et séparé des pages publiques, prêt à être connecté à Supabase avec authentification.
+Validation : page `/admin` créée avec navigation des modules, indicateurs V1, liens vers les espaces existants et séparation explicite de l'espace public. Aucune action sensible sans authentification ; prête pour une future connexion Supabase.
+
+### TASK-015 — Connexion Supabase V1
+Statut : 🔵 En cours
+Objectif : préparer la connexion à Supabase pour remplacer progressivement les données de démonstration.
+Première étape : définir le client Supabase et la configuration d'environnement sans exposer de secrets.
+Critère de fin : le projet possède une base de connexion Supabase propre, documentée et prête à recevoir les premières requêtes.
 
 ## Règle
 Une tâche doit être terminée et testée avant de passer à la suivante.
